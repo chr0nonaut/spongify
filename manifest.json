@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Spongify",
+  "version": "1.0",
+  "permissions": ["contextMenus", "activeTab", "scripting"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_title": "Spongify"
+  }
+}
