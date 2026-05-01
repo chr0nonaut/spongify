@@ -1,13 +1,13 @@
-// Create the menu item when the extension is installed
+
 browser.runtime.onInstalled.addListener(() => {
   browser.contextMenus.create({
     id: "spongify-text",
     title: "Spongify",
-    contexts: ["editable"] // Only shows up in text boxes/inputs
+    contexts: ["editable"]
   });
 });
 
-// Listen for the click
+
 browser.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "spongify-text") {
     browser.scripting.executeScript({
@@ -17,7 +17,7 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
   }
 });
 
-// This function runs inside the actual webpage
+
 function spongifyLogic() {
   const activeEl = document.activeElement;
   
@@ -32,7 +32,7 @@ function spongifyLogic() {
         .map((char, i) => i % 2 ? char.toUpperCase() : char.toLowerCase())
         .join('');
 
-      // Replace the selected text
+      
       activeEl.setRangeText(sponged, start, end, 'select');
     }
   }
